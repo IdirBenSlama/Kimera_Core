@@ -1,0 +1,59 @@
+# Kimera V0.1 – Workspace Rules
+
+## Core Reference
+- For all architectural, coding, and design decisions, **consult `kimera_ai_reference.md`** for the latest project context, constraints, and cognitive fidelity goals. If unsure, ask the user to clarify or point to the relevant section in `kimera_ai_reference.md`.
+
+## Reasoning Protocol
+- **Before implementing any significant feature or change:**
+  1. **Think:** Analyze all requirements, constraints, and existing code.
+  2. **Plan:** Break down the implementation into atomic steps and present to the user.
+  3. **Verify:** Confirm your plan aligns with cognitive fidelity goals and project structure.
+  4. **Implement:** Execute the plan in small, verifiable increments.
+  5. **Document:** Update relevant files and diagrams to reflect changes.
+- Await explicit approval before moving between these steps.
+
+## Target Cognitive Dynamics
+- Deep Context Sensitivity
+- Resonance-Triggered Associative Exploration
+- Analogy as Core Bridge
+- Multi-Level Abstraction ("Zoom")
+- Dynamic Operating States (Focus vs. "AZ Mode")
+- Visual/Spatial Internal Architecture
+
+## Project Structure & File Management
+- **Strictly follow the file/folder structure and naming conventions defined in `GUIDELINE.md` and `kimera_ai_reference.md`.**
+- All source code must be in `src/` and its submodules (`core`, `interfaces`, `utils`).
+- Entry point is `src/main.py`. No code or scripts in the root except documentation and config.
+- Documentation in root (`README.md`, `GUIDELINE.md`, `DESIGN.md`) and diagrams in `docs/diagrams/` (as `.mermaid` files) or embedded in `DESIGN.md`.
+- Diagrams must use Mermaid syntax. Update or generate diagrams when architecture or workflow changes.
+- Update `requirements.txt` after new package installs. Use `pip freeze > requirements.txt` after activating the virtual environment.
+- Always use and update `.gitignore` to exclude `.env`, `.venv`, and other non-committed files.
+
+## Coding Standards
+- Use type hints and comprehensive docstrings for all functions and classes. Docstrings must include `:raises:` if applicable.
+- Use `logging` (never `print`) for all non-user-facing output.
+- All API keys and config must be loaded via `python-dotenv` from `.env`. Never hardcode secrets.
+- Place configuration parameters (thresholds, model names, etc.) in `src/utils/config.py`.
+- Use atomic, incremental commits with meaningful messages. Push regularly.
+- Document every major architectural or workflow change in `DESIGN.md` and update `kimera_ai_reference.md` if it impacts the core philosophy or architecture.
+
+## Error Handling & Environment Issues
+- Robust error handling is non-negotiable. Use specific exceptions, never bare `except:`.
+- Log errors with tracebacks using `logging.exception()`. Include actionable messages.
+- Immediately report any environment issues (missing packages, API connection errors, etc.) with clear resolution steps.
+- If an approach fails 2-3 times despite adjustments, suggest an alternative rather than continuing with the same strategy.
+
+## Documentation & Visuals
+- After each major step, update:
+    - `README.md` (Current Status & Milestones)
+    - `DESIGN.md` (architecture, diagrams)
+    - `kimera_ai_reference.md` (if any core rule, philosophy, or architecture changes)
+- Use Roo Code to generate/update Mermaid diagrams as part of the documentation workflow.
+
+## Testing & Error Handling
+- Define simple, manual test cases for each core loop step in `TESTING.md` or within `GUIDELINE.md`.
+- If errors or unexpected behavior occur, log all details and provide error messages and relevant `kimera.log` output to Roo Code for diagnosis and correction.
+- All error handling must be explicit and user-facing issues must be easy to identify through logs or observable behavior.
+
+## Rule Precedence
+- If in doubt or there is a conflict, **`kimera_ai_reference.md` takes precedence** over `.cursorrules` and all other files.
